@@ -70,8 +70,8 @@ namespace Structure_helper
                 else
                     pen = new Pen(Color.Red, 4);
 
-                float angle = 90-p.Direction;
-                Point endPoint = new Point(Convert.ToInt32(Math.Sin(angle) * height+center.X), Convert.ToInt32(Math.Cos(angle) * height+center.Y));
+                double angle = (90-p.Direction)*Math.PI/180;
+                Point endPoint = new Point(Convert.ToInt32(center.X + Math.Cos(angle) * height), center.Y - Convert.ToInt32(Math.Sin(angle) * height));
                 graphics.DrawLine(pen, center,endPoint);
             }
 
