@@ -1,0 +1,31 @@
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\bin\Release\Structure helper.exe
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\bin\Release\Structure helper.pdb
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.Properties.Resources.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.csproj.GenerateResource.Cache
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.exe
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.pdb
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.EnterStructInfo.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.EnterJobNum.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.EnterPipeInfo.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.JobStructures.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.StartScrn.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\bin\Release\Structure helper.exe.manifest
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\bin\Release\Structure helper.application
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.exe.manifest
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.application
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.exe
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.pdb
+C:\Users\user\Dropbox\Structure Helper\Structure helper\bin\Release\Structure helper.exe.manifest
+C:\Users\user\Dropbox\Structure Helper\Structure helper\bin\Release\Structure helper.application
+C:\Users\user\Dropbox\Structure Helper\Structure helper\bin\Release\Structure helper.exe
+C:\Users\user\Dropbox\Structure Helper\Structure helper\bin\Release\Structure helper.pdb
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.EnterStructInfo.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.EnterJobNum.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.EnterPipeInfo.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.JobStructures.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.StartScrn.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.Properties.Resources.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.csproj.GenerateResource.Cache
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.exe.manifest
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.application
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.StructurePipes.resources
