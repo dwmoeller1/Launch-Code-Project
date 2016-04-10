@@ -29,3 +29,9 @@ C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structur
 C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.exe.manifest
 C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure helper.application
 C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.StructurePipes.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.CreateConnection.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.Sketch.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.StructurePipes.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.CreateConnection.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.Sketch.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Release\Structure_helper.DisplayConnections.resources
