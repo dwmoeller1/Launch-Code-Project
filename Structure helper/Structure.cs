@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace Structure_helper
 {
@@ -41,6 +42,10 @@ namespace Structure_helper
         protected StructureType type;
         protected string shotNumber, label;
         protected List<PipeEnd> pipes;
+        public float Easting { get; set; }
+        public float Northing { get; set; }
+        public float Elevation { get; set; }
+        public Rectangle Rect { get; set; }
 
         public Structure()
         {
@@ -49,9 +54,10 @@ namespace Structure_helper
             pipes = new List<PipeEnd>();
             type = StructureType.unknown;
             NumPipes = "0";
+            this.Northing = 0;
+            this.Easting = 0;
         }
 
-        public string Name { get; set; }
 
         public string Shot
         {

@@ -18,7 +18,7 @@ namespace Structure_helper
         public float Diameter { get; set; }
         public PipeType Type { get; set; }
         public string ID { get; set; }
-        public Structure AtStructure { get; set; }
+        public Structure ParentStructure { get; set; }
         public Flow Flow { get; set; }
         public float Invert { get; set; }
         
@@ -27,7 +27,7 @@ namespace Structure_helper
             this.Direction = 0;
             this.Diameter = 0;
             this.Type = PipeType.unknown;
-            this.AtStructure = s;
+            this.ParentStructure = s;
             this.Flow = Flow.unknown;
             this.Invert = 0;
         }

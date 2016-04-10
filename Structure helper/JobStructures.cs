@@ -19,7 +19,8 @@ namespace Structure_helper
             this.lstbx_Structures.DataSource = Program.CurrentJob.Structures;
             this.lstbx_Structures.DisplayMember = "Shot";
             this.btn_EditStructure.Enabled = false;
-            this.btn_EditPipes.Enabled = false;
+            this.btn_DisplayPipes.Enabled = false;
+            lstbx_Structures.ClearSelected();
         }
 
         private void btn_AddStructure_Click(object sender, EventArgs e)
@@ -51,14 +52,24 @@ namespace Structure_helper
             {
                 foreach (Structure sc in CurrentJob.Structures)
                 {
-                    string s = String.Format("{0},{1},{2},{3}", sc.Shot, sc.Label, sc.Type.ToString(), sc.Pipes.Count.ToString());
+                    string s = String.Format("{0},{1},{2},{3},{4},{5},{6}", sc.Shot, sc.Label, sc.Type.ToString(),sc.Northing,sc.Easting,sc.Elevation, sc.Pipes.Count.ToString());
                     writer.WriteLine(s);
 
                     foreach (PipeEnd p in sc.Pipes)
-                    {
+                    {                        
                         s = string.Format("{0},{1},{2},{3},{4}", p.Invert.ToString(),p.Flow.ToString(),p.Direction.ToString(), p.Diameter.ToString(), p.Type.ToString());
                         writer.WriteLine(s);
                     }
+                }
+
+                writer.WriteLine("***");
+
+                foreach (Connection c in Program.Connections)
+                {
+                    //upperStructure shot, lowerStructure shot, upperPipe ID, lowerPipe ID
+
+                    string con = string.Format("{0},{1},{2},{3}", c.upperStructure.Shot, c.lowerStructure.Shot, c.upperEnd.ID, c.lowerEnd.ID);
+                    writer.WriteLine(con);
                 }
             }
         }
@@ -77,23 +88,30 @@ namespace Structure_helper
             if (lstbx_Structures.SelectedIndex == -1)
             {
                 btn_EditStructure.Enabled = false;
-                btn_EditPipes.Enabled = false;
+                btn_DisplayPipes.Enabled = false;
             }
             else
             {
                 btn_EditStructure.Enabled = true;
-                btn_EditPipes.Enabled = true;
+                btn_DisplayPipes.Enabled = true;
             }
         }
 
-        private void btn_EditConnections_Click(object sender, EventArgs e)
+        private void btn_Connections_Click(object sender, EventArgs e)
         {
-
+            (new DisplayConnections()).ShowDialog();
         }
 
         public Job CurrentJob
         {
             get { return Program.CurrentJob; }
+        }
+
+        private void btn_SketchStructures_Click(object sender, EventArgs e)
+        {
+            Sketch sketch = new Sketch();
+            sketch.Show();
+            sketch.SketchArea.Paint += new PaintEventHandler(sketch.sketchArea_PaintStructuresTop);
         }
     }
 }

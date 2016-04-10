@@ -33,7 +33,8 @@
             this.btn_EditStructure = new System.Windows.Forms.Button();
             this.btn_Save = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_EditPipes = new System.Windows.Forms.Button();
+            this.btn_DisplayPipes = new System.Windows.Forms.Button();
+            this.btn_SketchStructures = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lstbx_Structures
@@ -86,22 +87,33 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Structures:";
             // 
-            // btn_EditPipes
+            // btn_DisplayPipes
             // 
-            this.btn_EditPipes.Location = new System.Drawing.Point(143, 122);
-            this.btn_EditPipes.Name = "btn_EditPipes";
-            this.btn_EditPipes.Size = new System.Drawing.Size(101, 23);
-            this.btn_EditPipes.TabIndex = 5;
-            this.btn_EditPipes.Text = "Edit Connections";
-            this.btn_EditPipes.UseVisualStyleBackColor = true;
-            this.btn_EditPipes.Click += new System.EventHandler(this.btn_EditConnections_Click);
+            this.btn_DisplayPipes.Location = new System.Drawing.Point(143, 122);
+            this.btn_DisplayPipes.Name = "btn_DisplayPipes";
+            this.btn_DisplayPipes.Size = new System.Drawing.Size(101, 23);
+            this.btn_DisplayPipes.TabIndex = 5;
+            this.btn_DisplayPipes.Text = "Connections";
+            this.btn_DisplayPipes.UseVisualStyleBackColor = true;
+            this.btn_DisplayPipes.Click += new System.EventHandler(this.btn_Connections_Click);
+            // 
+            // btn_SketchStructures
+            // 
+            this.btn_SketchStructures.Location = new System.Drawing.Point(143, 166);
+            this.btn_SketchStructures.Name = "btn_SketchStructures";
+            this.btn_SketchStructures.Size = new System.Drawing.Size(101, 23);
+            this.btn_SketchStructures.TabIndex = 6;
+            this.btn_SketchStructures.Text = "Sketch Structures";
+            this.btn_SketchStructures.UseVisualStyleBackColor = true;
+            this.btn_SketchStructures.Click += new System.EventHandler(this.btn_SketchStructures_Click);
             // 
             // JobStructures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(256, 306);
-            this.Controls.Add(this.btn_EditPipes);
+            this.Controls.Add(this.btn_SketchStructures);
+            this.Controls.Add(this.btn_DisplayPipes);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.btn_EditStructure);
@@ -125,6 +137,7 @@
         private System.Windows.Forms.Button btn_EditStructure;
         private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btn_EditPipes;
+        private System.Windows.Forms.Button btn_DisplayPipes;
+        private System.Windows.Forms.Button btn_SketchStructures;
     }
 }
