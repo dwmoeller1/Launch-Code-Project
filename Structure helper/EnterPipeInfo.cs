@@ -60,7 +60,6 @@ namespace Structure_helper
                 CurrentPipe.Flow = Flow.unknown;
 
             this.Close();
-            this.Parent.Show();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
@@ -70,8 +69,8 @@ namespace Structure_helper
 
         private void EnterPipeInfo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Parent.Show();
-            this.Parent.DrawStructure();
+            if(this.Parent!=null)
+                this.Parent.Refresh();
         }
     }
 }

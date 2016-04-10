@@ -20,6 +20,6 @@ namespace Structure_helper
 
         static public Job CurrentJob { get; set; }
         static public StartScrn StartScrn { get; set; }
-
+        static public Connections Connections { get; set; }
     }
 }

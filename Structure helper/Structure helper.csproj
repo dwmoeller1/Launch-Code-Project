@@ -24,7 +24,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -65,8 +65,10 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +79,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Connections.cs" />
+    <Compile Include="DisplayConnections.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DisplayConnections.Designer.cs">
+      <DependentUpon>DisplayConnections.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnterStructInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +110,18 @@
     <Compile Include="JobStructures.Designer.cs">
       <DependentUpon>JobStructures.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateConnection.Designer.cs">
+      <DependentUpon>CreateConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sketch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sketch.Designer.cs">
+      <DependentUpon>Sketch.cs</DependentUpon>
+    </Compile>
     <Compile Include="StartScrn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,7 +132,6 @@
     <Compile Include="PipeEnd.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sketch.cs" />
     <Compile Include="Structure.cs" />
     <Compile Include="StructurePipes.cs">
       <SubType>Form</SubType>
@@ -119,6 +139,9 @@
     <Compile Include="StructurePipes.Designer.cs">
       <DependentUpon>StructurePipes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DisplayConnections.resx">
+      <DependentUpon>DisplayConnections.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EnterStructInfo.resx">
       <DependentUpon>EnterStructInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,6 +153,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="JobStructures.resx">
       <DependentUpon>JobStructures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateConnection.resx">
+      <DependentUpon>CreateConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sketch.resx">
+      <DependentUpon>Sketch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartScrn.resx">
       <DependentUpon>StartScrn.cs</DependentUpon>

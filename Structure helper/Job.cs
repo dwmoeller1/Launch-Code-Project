@@ -8,14 +8,14 @@ namespace Structure_helper
     public class Job
     {
         protected List<Structure> structures;
-        protected List<Tuple<Structure, Structure>> connections;
+        protected Connections connections;
         protected string jobNumber;
 
         public Job(string number)
         {
             this.jobNumber = number;
             this.structures = new List<Structure>();
-            this.connections = new List<Tuple<Structure, Structure>>();
+            connections = new Connections();
         }
 
         public string JobNumber

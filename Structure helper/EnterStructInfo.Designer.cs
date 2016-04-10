@@ -33,7 +33,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.cmb_StructureType = new System.Windows.Forms.ComboBox();
             this.btn_EditAddPipes = new System.Windows.Forms.Button();
-            this.btn_Save = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_ShotNumber = new System.Windows.Forms.TextBox();
             this.btn_Cancel = new System.Windows.Forms.Button();
@@ -80,23 +79,13 @@
             // 
             // btn_EditAddPipes
             // 
-            this.btn_EditAddPipes.Location = new System.Drawing.Point(168, 238);
+            this.btn_EditAddPipes.Location = new System.Drawing.Point(105, 238);
             this.btn_EditAddPipes.Name = "btn_EditAddPipes";
             this.btn_EditAddPipes.Size = new System.Drawing.Size(98, 23);
             this.btn_EditAddPipes.TabIndex = 8;
             this.btn_EditAddPipes.Text = "Add/Edit Pipes";
             this.btn_EditAddPipes.UseVisualStyleBackColor = true;
-            this.btn_EditAddPipes.Click += new System.EventHandler(this.btn_EditAddPipes_Click);
-            // 
-            // btn_Save
-            // 
-            this.btn_Save.Location = new System.Drawing.Point(43, 238);
-            this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(98, 23);
-            this.btn_Save.TabIndex = 7;
-            this.btn_Save.Text = "Save";
-            this.btn_Save.UseVisualStyleBackColor = true;
-            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
+            this.btn_EditAddPipes.Click += new System.EventHandler(this.btn_AddEditPipes_Click);
             // 
             // label5
             // 
@@ -128,13 +117,14 @@
             // 
             // btn_SaveExit
             // 
+            this.btn_SaveExit.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btn_SaveExit.Location = new System.Drawing.Point(43, 285);
             this.btn_SaveExit.Name = "btn_SaveExit";
             this.btn_SaveExit.Size = new System.Drawing.Size(98, 23);
             this.btn_SaveExit.TabIndex = 12;
-            this.btn_SaveExit.Text = "Save and Exit";
+            this.btn_SaveExit.Text = "Done";
             this.btn_SaveExit.UseVisualStyleBackColor = true;
-            this.btn_SaveExit.Click += new System.EventHandler(this.btn_SaveExit_Click);
+            this.btn_SaveExit.Click += new System.EventHandler(this.btn_Done_Click);
             // 
             // btn_CaptureCoords
             // 
@@ -167,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btn_Cancel;
-            this.ClientSize = new System.Drawing.Size(308, 331);
+            this.ClientSize = new System.Drawing.Size(308, 330);
             this.Controls.Add(this.txt_Northing);
             this.Controls.Add(this.txt_Easting);
             this.Controls.Add(this.btn_CaptureCoords);
@@ -176,7 +166,6 @@
             this.Controls.Add(this.txt_ShotNumber);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btn_EditAddPipes);
-            this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.cmb_StructureType);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -200,7 +189,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmb_StructureType;
         private System.Windows.Forms.Button btn_EditAddPipes;
-        private System.Windows.Forms.Button btn_Save;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txt_ShotNumber;
         private System.Windows.Forms.Button btn_Cancel;
