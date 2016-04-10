@@ -27,3 +27,13 @@ C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure_
 C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure helper.exe.manifest
 C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure helper.application
 C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure_helper.StructurePipes.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure_helper.CreateConnection.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\bin\Debug\Structure helper.exe.manifest
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\bin\Debug\Structure helper.application
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure_helper.CreateConnection.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure_helper.Sketch.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure_helper.StructurePipes.resources
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure helper.exe.manifest
+C:\Users\Sarah\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure helper.application
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure_helper.Sketch.resources
+C:\Users\user\Dropbox\Structure Helper\Structure helper\obj\x86\Debug\Structure_helper.DisplayConnections.resources
