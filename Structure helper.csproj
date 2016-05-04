@@ -65,9 +65,20 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -79,6 +90,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionDB.cs">
+      <DependentUpon>JobDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Connections.cs" />
     <Compile Include="DisplayConnections.cs">
       <SubType>Form</SubType>
@@ -104,6 +118,23 @@
     <Compile Include="EnterPipeInfo.Designer.cs">
       <DependentUpon>EnterPipeInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="File.cs" />
+    <Compile Include="Job.cs" />
+    <Compile Include="JobDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>JobDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="JobStructures.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +153,10 @@
     <Compile Include="Merge.Designer.cs">
       <DependentUpon>Merge.cs</DependentUpon>
     </Compile>
+    <Compile Include="PipeEnd.cs" />
+    <Compile Include="PipeEndDB.cs">
+      <DependentUpon>JobDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Sketch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,11 +169,12 @@
     <Compile Include="StartScrn.Designer.cs">
       <DependentUpon>StartScrn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Job.cs" />
-    <Compile Include="PipeEnd.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Structure.cs" />
+    <Compile Include="StructureDB.cs">
+      <DependentUpon>JobDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="StructurePipes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -184,6 +220,15 @@
     <EmbeddedResource Include="StructurePipes.resx">
       <DependentUpon>StructurePipes.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="App.Config" />
+    <EntityDeploy Include="JobDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>JobDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="JobDB.edmx.diagram">
+      <DependentUpon>JobDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -219,6 +264,21 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="JobDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JobDB.edmx</DependentUpon>
+      <LastGenOutput>JobDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="JobDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>JobDB.edmx</DependentUpon>
+      <LastGenOutput>JobDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

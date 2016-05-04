@@ -15,11 +15,13 @@ namespace Structure_helper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Program.DB = new JobDB();
             Application.Run(new StartScrn());
         }
 
         static public Job CurrentJob { get; set; }
         static public StartScrn StartScrn { get; set; }
         static public Connections Connections { get; set; }
+        static public JobDB DB { get; set; }
     }
 }

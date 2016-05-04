@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="JobModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ConnectionDB">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="UpperPipeEndId" Type="int" Nullable="false" />
+          <Property Name="LowerPipeEndId" Type="int" Nullable="false" />
+          <Property Name="UpperStructureId" Type="int" Nullable="false" />
+          <Property Name="LowerStructureId" Type="int" Nullable="false" />
+          <Property Name="JobId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Structure Helper.dbo.PipeEndDB' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PipeEndDB">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="StructureId" />
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="StructureId" Type="int" Nullable="false" />
+          <Property Name="Direction" Type="varchar" MaxLength="10" />
+          <Property Name="Invert" Type="float" />
+          <Property Name="Flow" Type="int" />
+          <Property Name="Diameter" Type="float" />
+          <Property Name="Type" Type="varchar" MaxLength="10" />
+          <Property Name="ConnectionId" Type="int" />
+          <Property Name="JobId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StructureDB">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Shot" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Label" Type="nchar" MaxLength="10" />
+          <Property Name="Elevation" Type="float" />
+          <Property Name="Northing" Type="float" />
+          <Property Name="Easting" Type="float" />
+          <Property Name="X" Type="int" />
+          <Property Name="Y" Type="int" />
+          <Property Name="Type" Type="varchar" MaxLength="10" />
+          <Property Name="ConnectionId" Type="int" />
+          <Property Name="JobId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_PipeEnd_Connection">
+          <End Role="ConnectionDB" Type="Self.ConnectionDB" Multiplicity="1" />
+          <End Role="PipeEndDB" Type="Self.PipeEndDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConnectionDB">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PipeEndDB">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PipeEnd_Structure">
+          <End Role="StructureDB" Type="Self.StructureDB" Multiplicity="1" />
+          <End Role="PipeEndDB" Type="Self.PipeEndDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StructureDB">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PipeEndDB">
+              <PropertyRef Name="StructureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Structure_Connection">
+          <End Role="ConnectionDB" Type="Self.ConnectionDB" Multiplicity="0..1" />
+          <End Role="StructureDB" Type="Self.StructureDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConnectionDB">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StructureDB">
+              <PropertyRef Name="ConnectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JobModelStoreContainer">
+          <EntitySet Name="ConnectionDB" EntityType="Self.ConnectionDB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StructureDB" EntityType="Self.StructureDB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PipeEndDB" EntityType="Self.PipeEndDB" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PipeEndDB].[Id] AS [Id], 
+    [PipeEndDB].[StructureId] AS [StructureId], 
+    [PipeEndDB].[Direction] AS [Direction], 
+    [PipeEndDB].[Invert] AS [Invert], 
+    [PipeEndDB].[Flow] AS [Flow], 
+    [PipeEndDB].[Diameter] AS [Diameter], 
+    [PipeEndDB].[Type] AS [Type], 
+    [PipeEndDB].[ConnectionId] AS [ConnectionId], 
+    [PipeEndDB].[JobId] AS [JobId]
+    FROM [dbo].[PipeEndDB] AS [PipeEndDB]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_PipeEnd_Connection" Association="Self.FK_PipeEnd_Connection">
+            <End Role="ConnectionDB" EntitySet="ConnectionDB" />
+            <End Role="PipeEndDB" EntitySet="PipeEndDB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PipeEnd_Structure" Association="Self.FK_PipeEnd_Structure">
+            <End Role="StructureDB" EntitySet="StructureDB" />
+            <End Role="PipeEndDB" EntitySet="PipeEndDB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Structure_Connection" Association="Self.FK_Structure_Connection">
+            <End Role="ConnectionDB" EntitySet="ConnectionDB" />
+            <End Role="StructureDB" EntitySet="StructureDB" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JobModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ConnectionDB">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="UpperPipeEndId" Type="Int32" Nullable="false" />
+          <Property Name="LowerPipeEndId" Type="Int32" Nullable="false" />
+          <Property Name="UpperStructureId" Type="Int32" Nullable="false" />
+          <Property Name="LowerStructureId" Type="Int32" Nullable="false" />
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PipeEndDBs" Relationship="Self.FK_PipeEnd_Connection" FromRole="ConnectionDB" ToRole="PipeEndDB" />
+          <NavigationProperty Name="StructureDBs" Relationship="Self.FK_Structure_Connection" FromRole="ConnectionDB" ToRole="StructureDB" />
+        </EntityType>
+        <EntityType Name="StructureDB">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Shot" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Label" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Elevation" Type="Double" />
+          <Property Name="Northing" Type="Double" />
+          <Property Name="Easting" Type="Double" />
+          <Property Name="X" Type="Int32" />
+          <Property Name="Y" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ConnectionId" Type="Int32" />
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConnectionDB" Relationship="Self.FK_Structure_Connection" FromRole="StructureDB" ToRole="ConnectionDB" />
+          <NavigationProperty Name="PipeEndDBs" Relationship="Self.FK_PipeEnd_Structure" FromRole="StructureDB" ToRole="PipeEndDB" />
+        </EntityType>
+        <EntityType Name="PipeEndDB">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="StructureId" />
+            <PropertyRef Name="JobId" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="StructureId" Type="Int32" Nullable="false" />
+          <Property Name="Direction" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Invert" Type="Double" />
+          <Property Name="Flow" Type="Int32" />
+          <Property Name="Diameter" Type="Double" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ConnectionId" Type="Int32" />
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ConnectionDB" Relationship="Self.FK_PipeEnd_Connection" FromRole="PipeEndDB" ToRole="ConnectionDB" />
+          <NavigationProperty Name="StructureDB" Relationship="Self.FK_PipeEnd_Structure" FromRole="PipeEndDB" ToRole="StructureDB" />
+        </EntityType>
+        <Association Name="FK_PipeEnd_Connection">
+          <End Role="ConnectionDB" Type="Self.ConnectionDB" Multiplicity="1" />
+          <End Role="PipeEndDB" Type="Self.PipeEndDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConnectionDB">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PipeEndDB">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Structure_Connection">
+          <End Role="ConnectionDB" Type="Self.ConnectionDB" Multiplicity="0..1" />
+          <End Role="StructureDB" Type="Self.StructureDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConnectionDB">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="StructureDB">
+              <PropertyRef Name="ConnectionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PipeEnd_Structure">
+          <End Role="StructureDB" Type="Self.StructureDB" Multiplicity="1" />
+          <End Role="PipeEndDB" Type="Self.PipeEndDB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StructureDB">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PipeEndDB">
+              <PropertyRef Name="StructureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="JobDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ConnectionDBs" EntityType="Self.ConnectionDB" />
+          <EntitySet Name="StructureDBs" EntityType="Self.StructureDB" />
+          <EntitySet Name="PipeEndDBs" EntityType="Self.PipeEndDB" />
+          <AssociationSet Name="FK_PipeEnd_Connection" Association="Self.FK_PipeEnd_Connection">
+            <End Role="ConnectionDB" EntitySet="ConnectionDBs" />
+            <End Role="PipeEndDB" EntitySet="PipeEndDBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Structure_Connection" Association="Self.FK_Structure_Connection">
+            <End Role="ConnectionDB" EntitySet="ConnectionDBs" />
+            <End Role="StructureDB" EntitySet="StructureDBs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PipeEnd_Structure" Association="Self.FK_PipeEnd_Structure">
+            <End Role="StructureDB" EntitySet="StructureDBs" />
+            <End Role="PipeEndDB" EntitySet="PipeEndDBs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JobModelStoreContainer" CdmEntityContainer="JobDB">
+          <EntitySetMapping Name="ConnectionDBs">
+            <EntityTypeMapping TypeName="JobModel.ConnectionDB">
+              <MappingFragment StoreEntitySet="ConnectionDB">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UpperPipeEndId" ColumnName="UpperPipeEndId" />
+                <ScalarProperty Name="LowerPipeEndId" ColumnName="LowerPipeEndId" />
+                <ScalarProperty Name="UpperStructureId" ColumnName="UpperStructureId" />
+                <ScalarProperty Name="LowerStructureId" ColumnName="LowerStructureId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StructureDBs">
+            <EntityTypeMapping TypeName="JobModel.StructureDB">
+              <MappingFragment StoreEntitySet="StructureDB">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Shot" ColumnName="Shot" />
+                <ScalarProperty Name="Label" ColumnName="Label" />
+                <ScalarProperty Name="Elevation" ColumnName="Elevation" />
+                <ScalarProperty Name="Northing" ColumnName="Northing" />
+                <ScalarProperty Name="Easting" ColumnName="Easting" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PipeEndDBs">
+            <EntityTypeMapping TypeName="JobModel.PipeEndDB">
+              <MappingFragment StoreEntitySet="PipeEndDB">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StructureId" ColumnName="StructureId" />
+                <ScalarProperty Name="Direction" ColumnName="Direction" />
+                <ScalarProperty Name="Invert" ColumnName="Invert" />
+                <ScalarProperty Name="Flow" ColumnName="Flow" />
+                <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ConnectionId" ColumnName="ConnectionId" />
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

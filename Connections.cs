@@ -15,11 +15,11 @@ namespace Structure_helper
         public Structure upperStructure, lowerStructure;
     }
 
-    public class Connections:List<Connection>
+    public class Connections : List<Connection>
     {
         public Connections()
         {
-            
+
         }
 
         public void Connect(PipeEnd pipe1, PipeEnd pipe2)
