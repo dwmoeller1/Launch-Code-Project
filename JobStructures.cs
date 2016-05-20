@@ -48,32 +48,8 @@ namespace Structure_helper
         {
             //create new text file to save current data - always overwrites old 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {     
-
-                using (StreamWriter writer = new StreamWriter(saveFileDialog1.FileName, false))
-                {
-                    foreach (Structure sc in CurrentJob.Structures)
-                    {
-                        string s = String.Format("{0},{1},{2},{3},{4},{5},{6}", sc.Shot, sc.Label, sc.Type.ToString(), sc.Northing, sc.Easting, sc.Elevation, sc.Pipes.Count.ToString());
-                        writer.WriteLine(s);
-
-                        foreach (PipeEnd p in sc.Pipes)
-                        {
-                            s = string.Format("{0},{1},{2},{3},{4}", p.Invert.ToString(), p.Flow.ToString(), p.Direction.ToString(), p.Diameter.ToString(), p.Type.ToString());
-                            writer.WriteLine(s);
-                        }
-                    }
-
-                    writer.WriteLine("***");
-
-                    foreach (Connection c in Program.Connections)
-                    {
-                        //upperStructure shot, lowerStructure shot, upperPipe ID, lowerPipe ID
-
-                        string con = string.Format("{0},{1},{2},{3}", c.upperStructure.Shot, c.lowerStructure.Shot, c.upperEnd.ID, c.lowerEnd.ID);
-                        writer.WriteLine(con);
-                    }
-                }
+            {
+                File.SaveJobFile(saveFileDialog1.FileName);                
             }
         }
 

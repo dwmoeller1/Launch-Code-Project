@@ -21,21 +21,14 @@ namespace Structure_helper
 
         private void btn_Merge_Click(object sender, EventArgs e)
         {
-            using (StreamReader reader = new StreamReader(txt_ShotFile.Text))
-            {
-
-            }
+            File.MergeFiles(txt_JobFile.Text, txt_ShotFile.Text);
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                using(StreamWriter writer = new StreamWriter(saveFileDialog1.FileName))
-                {
-
-                }
+                File.SaveJobFile(saveFileDialog1.FileName);
+                this.Dispose();
+                (new JobStructures()).Show();
             }
-
-
-            this.Dispose();
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
