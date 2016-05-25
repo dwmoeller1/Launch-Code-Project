@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Structure_helper
+namespace Structure_Helper
 {
     static class Program
     {
@@ -15,11 +15,15 @@ namespace Structure_helper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartScrn());
+            //Program.DB = new JobDB();
+            var startScrn = new StartScrn();
+            StartScrn = startScrn;
+            Application.Run(startScrn);
         }
 
         static public Job CurrentJob { get; set; }
         static public StartScrn StartScrn { get; set; }
         static public Connections Connections { get; set; }
+        //static public JobDB DB { get; set; }
     }
 }

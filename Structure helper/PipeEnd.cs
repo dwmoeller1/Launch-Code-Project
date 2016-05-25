@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Structure_helper
+namespace Structure_Helper
 {
     public enum Flow
     {
@@ -21,7 +21,7 @@ namespace Structure_helper
         public Structure ParentStructure { get; set; }
         public Flow Flow { get; set; }
         public float Invert { get; set; }
-        
+
         public PipeEnd(Structure s)
         {
             this.Direction = 0;

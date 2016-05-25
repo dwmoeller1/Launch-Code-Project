@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Drawing;
 
-namespace Structure_helper
+namespace Structure_Helper
 {
     public enum StructureType
     {
@@ -22,7 +22,7 @@ namespace Structure_helper
         CI,
         SSMH,
         GT,
-        CO        
+        CO
     };
 
     public enum PipeType
@@ -63,7 +63,7 @@ namespace Structure_helper
         {
             get
             {
-                if (shotNumber == "none" || shotNumber =="")
+                if (shotNumber == "none" || shotNumber == "")
                     return label;
                 else
                     return shotNumber;

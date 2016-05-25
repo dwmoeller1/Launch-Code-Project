@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Structure_helper
+namespace Structure_Helper
 {
     public class Job
     {

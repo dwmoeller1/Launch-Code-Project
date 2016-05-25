@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Structure_helper
+namespace Structure_Helper
 {
     public struct Connection
     {
@@ -15,28 +15,28 @@ namespace Structure_helper
         public Structure upperStructure, lowerStructure;
     }
 
-    public class Connections:List<Connection>
+    public class Connections : List<Connection>
     {
         public Connections()
         {
-            
+
         }
 
-        public void Connect(PipeEnd pipe1, Structure structure, PipeEnd pipe2)
+        public void Connect(PipeEnd pipe1, PipeEnd pipe2)
         {
             Connection c = new Connection();
             if (pipe1.Flow == Flow.In)
             {
                 c.lowerEnd = pipe1;
                 c.lowerStructure = pipe1.ParentStructure;
-                c.upperStructure = structure;
+                c.upperStructure = pipe2.ParentStructure;
                 c.upperEnd = pipe2;
             }
             else if (pipe1.Flow == Flow.Out)
             {
                 c.upperEnd = pipe1;
                 c.upperStructure = pipe1.ParentStructure;
-                c.lowerStructure = structure;
+                c.lowerStructure = pipe2.ParentStructure;
                 c.lowerEnd = pipe2;
             }
             this.Add(c);
